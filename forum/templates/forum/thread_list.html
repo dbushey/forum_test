@@ -1,1 +1,15 @@
-hi
+{% extends 'forum/base.html' %}
+
+	{% block content %}
+
+		{% for thread in threads %}
+		    <div>
+		        <h1><a href="{% url 'thread_detail' pk=thread.pk %}">{{ thread.subject }}</a></h1>
+		        <p>subject: {{ thread.subject }}</p>
+		    </div>
+		{% endfor %}
+	{% endblock %}
+
+
+
+
