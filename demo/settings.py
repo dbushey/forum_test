@@ -129,3 +129,5 @@ STATIC_URL = '/static/'
 # Add this redirect following instructions from the Django auth tutorial
 
 LOGIN_REDIRECT_URL = '/'
+
+LOGIN_URL = '/users/login/'

@@ -5,6 +5,7 @@ from .models import Post
 from .models import Thread
 from .forms import PostForm
 from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
 
 
 def thread_list(request):
@@ -44,7 +45,9 @@ def post_new(request):
     form = PostForm()
     return render(request, 'forum/post_edit.html', {'form': form})
 
+@login_required
 def post_new(request, pk):
+    # decorator code will run here
     if request.method == "POST":
         form = PostForm(request.POST)
         thread = get_object_or_404(Thread, pk=pk)
