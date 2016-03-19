@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -39,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'forum',
     'users',
+    'django.contrib.admin',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -125,3 +125,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Add this redirect following instructions from the Django auth tutorial
+
+LOGIN_REDIRECT_URL = '/'
