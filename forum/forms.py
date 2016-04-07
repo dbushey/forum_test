@@ -11,8 +11,8 @@ class PostForm(forms.ModelForm):
 
 
 
-#class ThreadForm(forms.ModelForm):
+class ThreadForm(forms.ModelForm):
 
-    #class Meta:
-        #model = Thread
-        #fields = ('subject')
+    class Meta:
+        model = Thread
+        fields = ('subject',)

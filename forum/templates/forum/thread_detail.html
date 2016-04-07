@@ -3,7 +3,7 @@
 	{% block content %}
 
 	<div>
-	    <h1><a href="/">{{ thread.subject }}</a></h1>
+	    <h1><a href="{% url 'thread_detail' pk=thread.pk %}">{{ thread.subject }}</a></h1>
 	    <p>subject: {{ thread.subject }}</p>
 	</div>
 

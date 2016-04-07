@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from .models import Post
 from .models import Thread
-from .forms import PostForm
+from .forms import PostForm, ThreadForm
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 
