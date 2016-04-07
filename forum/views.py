@@ -6,6 +6,14 @@ from .models import Thread
 from .forms import PostForm, ThreadForm
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
+from .serializers import ThreadSerializer, PostSerializer
+from rest_framework import generics
+
+
+class APIThreadList(generics.ListCreateAPIView):
+    queryset = Thread.objects.all()
+    serializer_class = ThreadSerializer
+
 
 
 def thread_list(request):
