@@ -14,6 +14,10 @@ class APIThreadList(generics.ListCreateAPIView):
     queryset = Thread.objects.all()
     serializer_class = ThreadSerializer
 
+class APIThreadDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Thread.objects.all()
+    serializer_class = ThreadSerializer
+
 
 
 def thread_list(request):

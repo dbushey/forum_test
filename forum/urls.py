@@ -10,6 +10,8 @@ urlpatterns = [
     url(r'^post/new/(?P<pk>\d+)/$', views.post_new, name='post_new'),
     url(r'^post/(?P<pk>[0-9]+)/$', views.post_detail, name='post_detail'),
     url(r'^api/thread/$', views.APIThreadList.as_view()),
+    url(r'^api/thread/(?P<pk>[0-9]+)/$', views.APIThreadDetail.as_view()),
+
        
 ]
 
