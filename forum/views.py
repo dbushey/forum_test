@@ -8,6 +8,8 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from .serializers import ThreadSerializer, PostSerializer, UserSerializer
 from rest_framework import generics
+from rest_framework import permissions
+
 
 
 
@@ -22,10 +24,15 @@ class APIThreadDetail(generics.RetrieveUpdateDestroyAPIView):
 class APIPostList(generics.ListCreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
 
 class APIPostDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 class APIUserList(generics.ListAPIView):
     queryset = User.objects.all()

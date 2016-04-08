@@ -12,10 +12,11 @@ class ThreadSerializer(serializers.ModelSerializer):
 
 class PostSerializer(serializers.ModelSerializer):
     id = serializers.ReadOnlyField()
+    author = serializers.ReadOnlyField(source='author.username')
 
     class Meta:
         model = Post
-        fields = ('id', 'author', 'title', 'created_date', 
+        fields = ('id', 'author', 'title', 'created_date', 'text',
             'last_edited_date', 'thread',)
 
 
