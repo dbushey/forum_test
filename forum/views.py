@@ -1,13 +1,14 @@
 
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
-from .models import Post
-from .models import Thread
+from django.contrib.auth.models import User
+from .models import Thread, Post
 from .forms import PostForm, ThreadForm
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
-from .serializers import ThreadSerializer, PostSerializer
+from .serializers import ThreadSerializer, PostSerializer, UserSerializer
 from rest_framework import generics
+
 
 
 class APIThreadList(generics.ListCreateAPIView):
@@ -17,6 +18,23 @@ class APIThreadList(generics.ListCreateAPIView):
 class APIThreadDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Thread.objects.all()
     serializer_class = ThreadSerializer
+
+class APIPostList(generics.ListCreateAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+class APIPostDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+class APIUserList(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
+class APIUserDetail(generics.RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 
 

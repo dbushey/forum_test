@@ -3,6 +3,7 @@ from django.utils import timezone
 
 
 class Thread (models.Model):
+	#author = models.ForeignKey('auth.User')
 	subject = models.CharField(max_length=200)
 
 	def __str__(self):
